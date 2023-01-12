@@ -83,3 +83,18 @@ table th{
     letter-spacing: .1em;
     text-transform: uppercase;
 }
+
+.data-btn button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 22px;
+    margin-left: 25%;
+    padding: 6px;
+    width: 50%;
+    border-radius: 6px;
+    background-color: #181c2e;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
