@@ -64,10 +64,10 @@ function cadastrar(){
 
         window.location.href="../Dashboard/dashboard.html" ;
 
-        
-        alert('cadastrou');
+        // console.log(listaUser);
+        // alert('cadastrou');
     }else{
-        alert('erro')
+        // alert('erro')
     }
 }
 
