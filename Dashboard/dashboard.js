@@ -1,53 +1,55 @@
 
 
 function saveInput() {
+
+    let descricao = document.querySelector('#descricao');
+    let detalhamento = document.querySelector('#detalhamento');
+
     
-    let descricao = document.getElementById('descricao').value;
-    let detalhamento = document.getElementById('detalhamento').value;
     
-    localStorage.setItem('descricao', JSON.stringify(descricao))
-    localStorage.setItem('detalhamento', JSON.stringify(detalhamento))
+    let description = document.querySelector('#description');
+    let detalhes = document.querySelector('#detalhes');
 
-    let description = document.getElementById('description');
-    description.innerHTML = ""
-    let detalhes = document.getElementById('detalhes');
-    detalhes.innerHTML = "";
-
-    let countMais = 0;
+    let count = document.querySelector('#count');
+    let countMais = 1;
     
-    let count = document.getElementById('count');
-    count.innerText = ''
-    if(count){
-        count.append(++countMais);
-    }
+    let data = JSON.parse(localStorage.getItem('data') || '[]');
     
+    data.push({
+        descricao: descricao.value,
+        detalhamento: detalhamento.value
+    })
 
-    if( localStorage.detalhamento ) {
-        detalhes.append(detalhamento);
-    }
+    localStorage.setItem('data', JSON.stringify(data));
 
-    if( localStorage.descricao ) {
-        description.append(descricao);
+    data.forEach((item) => {
+        if(item.descricao && item.detalhamento){
+            description.innerHTML = item.descricao
+            detalhes.innerHTML = item.descricao
+        }
 
-    }
+    });
 
-
-
-
+    count.innerHTML = countMais++
+    
+    
     document.getElementById('descricao').value = "";
     document.getElementById('detalhamento').value = "";
 
 }
 
-saveInput();
+let userLogado = JSON.parse(localStorage.getItem('userLogado'));
 
+let logado = document.querySelector('#h1');
 
+logado.innerHTML = `Lista de recados: ${userLogado.nome}`;
 
-function removeItem() {
-
-    localStorage.removeItem('descricao');
-    localStorage.removeItem('detalhamento');
-
+if(localStorage.getItem('token') === null){
+    alert('voce precisa estar logado');
+    window.location.href='../SignIn/login.html';
 }
 
-removeItem();
+function sair(){
+    localStorage.removeItem('token');
+    window.location.href='../SignIn/login.html';
+}
