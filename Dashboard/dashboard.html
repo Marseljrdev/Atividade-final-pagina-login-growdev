@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="dashboard.css">
+    </head>
+    <body>
+        <header class="main-header">
+            <h1>Meus recados</h1>
+        </header>
+        <section class="section-input">
+            <input type="text" id="descricao" placeholder="Descrição" >
+            <input type="text" id="detalhamento" placeholder="Detalhamento" >
+            <button type="submit" id="btn-sub" onclick="saveInput()">Salvar</button>
+        </section>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Detalhamento</th>
+                        <th scope="col">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="#" id="count"></td>
+                        <td data-label="Descricao" id="description"></td>
+                        <td data-label="Detalhamento" id="detalhes" ></td>
+                        <td data-label="Acao" >
+                            <button type="submit" id="btn-apagar" onclick="removeItem()">Apagar</button>
+                            <button type="submit" id="btn-edit" >Editar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        <script src="./dashboard.js" ></script>
+    </body>
+</html>
