@@ -52,7 +52,7 @@ senha.addEventListener('keyup', () => {
 
 function cadastrar(){
     if(validNome && validEmail && validSenha){
-        let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]');
+         let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]');
 
         listaUser.push({
             nomeUser: nome.value,
@@ -61,13 +61,14 @@ function cadastrar(){
         });
 
         localStorage.setItem('listaUser', JSON.stringify(listaUser));
+        window.location.href="../SignIn/login.html" ;
 
-        window.location.href="../Dashboard/dashboard.html" ;
+        alert('Cadastrado com sucesso');
 
         // console.log(listaUser);
         // alert('cadastrou');
     }else{
-        // alert('erro')
+        alert('erro')
     }
 }
 
