@@ -1,5 +1,5 @@
 
-
+//Função para acessar a aplicação com o email e senha cadastrados
 function acessar(){
     let email = document.querySelector('#email');
 
