@@ -11,11 +11,12 @@
         <header class="main-header">
             <h1 id="h1" >Lista de recados</h1>
         </header>
-        <section class="section-input">
+        <div class="section-input">
             <input type="text" id="descricao" placeholder="Descrição" >
             <input type="text" id="detalhamento" placeholder="Detalhamento" >
-            <button id="btn-sub" onclick="saveInput()">Salvar</button>
-        </section>
+            <!-- <button id="btn-sub" onclick="saveInput()">Salvar</button> -->
+            <button id="btn-sub">Salvar</button>
+        </div>
         <main>
             <table>
                 <thead>
@@ -26,16 +27,18 @@
                         <th scope="col">Ação</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td data-label="#" id="count"></td>
-                        <td data-label="Descricao" id="description"></td>
-                        <td data-label="Detalhamento" id="detalhes" ></td>
-                        <td data-label="Acao" >
-                            <button type="submit" id="btn-apagar" onclick="removeItem()">Apagar</button>
-                            <button type="submit" id="btn-edit" >Editar</button>
-                        </td>
-                    </tr>
+                <tbody id="mostrarLinha" >
+                    
+<!--                         <tr>
+                            <td data-label="#" id="count"></td>
+                            <td data-label="Descricao" id="description"></td>
+                            <td data-label="Detalhamento" id="detalhes" ></td>
+                            <td data-label="Acao" >
+                                <button type="submit" id="btn-apagar" onclick="removeItem()">Apagar</button>
+                                <button type="submit" id="btn-edit" >Editar</button>
+                            </td>
+                        </tr>  -->
+                
                 </tbody>
             </table>
             <footer class="data-btn" >
