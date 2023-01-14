@@ -16,7 +16,7 @@ let validSenha = false;
 let msgSuccess = document.querySelector('#msgSuccess');
 let msgError = document.querySelector('#msgError');
 
-
+//Verificando se o nome digitado no cadastro é menor do que 2 caracteres
 nome.addEventListener('keyup', () => {
     if(nome.value.length <= 2){
         labelNome.setAttribute('style', 'color: red;');
@@ -28,6 +28,7 @@ nome.addEventListener('keyup', () => {
     }
 });
 
+//Verificando se o email digitado no cadastro é menor do que 5 caracteres
 email.addEventListener('keyup', ()=> {
     if(email.value.length <= 5){
         labelEmail.setAttribute('style', 'color: red;')
@@ -38,6 +39,7 @@ email.addEventListener('keyup', ()=> {
     }
 });
 
+//Verificando se a senha digitada no cadastro é menor do que 6 caracteres
 senha.addEventListener('keyup', () => {
     if(senha.value.length <= 6){
         labelSenha.setAttribute('style', 'color: red;');
@@ -49,10 +51,20 @@ senha.addEventListener('keyup', () => {
     
 });
 
-
+//Função para cadastrar o usuario no localstorage e verificando se ja existe um nome o email existente no localstorage
 function cadastrar(){
     if(validNome && validEmail && validSenha){
          let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]');
+
+         for(let i = 0; i < listaUser.length; i++){
+
+            if(listaUser[i].nomeUser === nome.value || listaUser[i].emailUser === email.value) {
+                alert('Nome e e-mail ja cadastrados, por favor informe outro');
+
+                return;
+            }
+            
+         }
 
         listaUser.push({
             nomeUser: nome.value,
