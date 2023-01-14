@@ -33,10 +33,10 @@ function acessar(){
         let token = Math.random().toString(14).substring(2) + Math.random().toString(14).substring(2);
         localStorage.setItem('token', token);
 
-        localStorage.setItem('userLogado', JSON.stringify(userValid));
+        localStorage.setItem('userLogado', JSON.stringify(userValid)); 
         
     }else{
-        alert('Email ou senha incorretos');
+        alert('Email e senha incorretos');
     }
     
     
